@@ -96,7 +96,10 @@ while continue_reading:
         data[uidkey] = [time.time(), 1]
     else:
         data[uidkey] = [time.time(), data[uidkey][1] * -1]
-    print uidkey, 'entering room'
+    if data[uidkey] == 1:
+        print uidkey, 'entering room'
+    else:
+        print uidkey, 'leaving room'
     with open('data/data.json', 'w') as infile:
         infile.write(json.dumps(data))
 
